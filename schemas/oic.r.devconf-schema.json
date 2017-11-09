@@ -5,21 +5,16 @@
   "definitions": {
     "oic.r.devconf": {
       "type": "object",
-      "oneOf": [
-        {
-          "properties": {
-            "dn": {
+      "properties": {
+        "dn": {
+          "oneOf": [
+            {            
               "type": "string",
               "description": "Indicates a pre-configured device name in language indicated by 'dl' in /oic/con;  presented by enrollee device to mediator device during easy-setup process",
               "pattern": "^.*$",
               "readOnly": true
-            }
-          },
-          "required":["dn"]
-        },
-        {
-          "properties": {
-            "dn": {
+            },
+            {
               "type": "array",
               "items": {
                 "type": "object",
@@ -41,10 +36,10 @@
               "readOnly": true,
               "description": "Localized device name."
             }
-          },
-          "required": ["dn"]
+          ]
         }
-      ]
+      },
+      "required":["dn"]
     }
   },
   "type": "object",
